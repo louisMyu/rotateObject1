@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openGLTest", "openGLTest\openGLTest.vcxproj", "{86B98416-11F0-46B6-BFA7-A348ADA79180}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Debug|Win32.ActiveCfg = Debug|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Debug|x64.ActiveCfg = Release|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Debug|x64.Build.0 = Release|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Release|Mixed Platforms.Build.0 = Release|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Release|Win32.ActiveCfg = Release|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Release|x64.ActiveCfg = Release|x64
+		{86B98416-11F0-46B6-BFA7-A348ADA79180}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

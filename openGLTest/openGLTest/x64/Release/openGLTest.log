@@ -1,0 +1,21 @@
+﻿Build started 10/31/2012 10:11:11 PM.
+     1>Project "C:\Users\Louis\Documents\GitHub\rotateObject1\openGLTest\openGLTest\openGLTest.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Release\openGLTest.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Louis\Documents\GitHub\rotateObject1\openGLTest\x64\Release\openGLTest.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\Release\openGLTest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Louis\Documents\GitHub\rotateObject1\openGLTest\x64\Release\openGLTest.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Louis\Documents\GitHub\rotateObject1\openGLTest\x64\Release\openGLTest.lib" /MACHINE:X64 x64\Release\openGLTest.obj
+         Generating code
+         Finished generating code
+         openGLTest.vcxproj -> C:\Users\Louis\Documents\GitHub\rotateObject1\openGLTest\x64\Release\openGLTest.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Louis\Documents\GitHub\rotateObject1\openGLTest\x64\Release\openGLTest.exe;#1" /manifest x64\Release\openGLTest.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "x64\Release\openGLTest.unsuccessfulbuild".
+         Touching "x64\Release\openGLTest.lastbuildstate".
+     1>Done Building Project "C:\Users\Louis\Documents\GitHub\rotateObject1\openGLTest\openGLTest\openGLTest.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.24
