@@ -6,6 +6,10 @@
 using namespace std;
 void display(void);
 void init(void);
+void idle(void);
+void mouse(int a, int b, int c, int d);
+void keyboard(unsigned char c, int x, int y);
+
 unsigned int defaults(unsigned int d,int & w, int & h);
 void reshape(int w, int h);
 #define X .525731112119133606 
@@ -28,17 +32,26 @@ void init(void) {
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-2.0, 2.0, -2.0, 2.0, -2.0, 2.0);
+	glOrtho(-2.0, 2.0, -2.0, 2.0, -3.0, 3.0);
 }
+static int rot = 0;
+static float xaxis = 0;
+static float yaxis = 0;
+
+static int mouseDown = 0;
+static int mouseX = 0;
+static int mouseY = 0;
 
 void display(void) {
-
+	
 	glClear(GL_COLOR_BUFFER_BIT);
-
+	if (mouseDown)
+		if (mouseX != 0 && mouseY != 0)
+			glRotatef(10, mouseX, mouseY, 0.0);
 	glBegin(GL_TRIANGLES);    
 	int i;
 	for (i = 0; i < 20; i++) {
-	   glColor3f(0, (GLfloat)i / 20,(GLfloat)i / 20);
+	   glColor3f(0, (GLfloat)i / 20 + 0.1,(GLfloat)i / 20 + 0.1);
 	   glVertex3fv(&vdata[tindices[i][0]][0]); 
 	   glVertex3fv(&vdata[tindices[i][1]][0]); 
 	   glVertex3fv(&vdata[tindices[i][2]][0]); 
@@ -58,7 +71,7 @@ int main(int argc, char ** argv) {
 
 	glutInitDisplayMode (displayMode);
 	glutInitContextVersion (3, 0);
-	glutInitContextProfile(GLUT_CORE_PROFILE);
+	//glutInitContextProfile(GLUT_CORE_PROFILE);
 
 #ifdef DEBUG
 	glutInitContextFlags(GLUT_DEBUG);
@@ -70,6 +83,9 @@ int main(int argc, char ** argv) {
 	cout << "Hello world!!!" << endl;
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
+	glutKeyboardFunc(keyboard);
+	glutMouseFunc(mouse);
+	glutIdleFunc(idle);
 	glutMainLoop();
 	return 0;
 }
@@ -77,10 +93,52 @@ int main(int argc, char ** argv) {
 unsigned int defaults(unsigned int displayMode, int &width, int &height) {
 	return displayMode;
 }
+static int previousTime = 0;
 
-void reshape(int w, int h) {
-	glViewport(0, 0, (GLsizei) w, (GLsizei) h);
-	glLoadIdentity();
-	glOrtho(-2.0, 2.0, -2.0, 2.0, -2.0, 2.0);
+void idle(void) {
+	int tickTime = glutGet(GLUT_ELAPSED_TIME);
+	int interval = tickTime - previousTime;
+	if (interval >= 1000 / 60) {
+		previousTime = tickTime;
+		glutPostRedisplay();
+	}
 }
 
+void keyboard(unsigned char key, int x, int y) {
+	xaxis = 0.0;
+	yaxis = 0.0;
+	switch(key) {
+	case 'd':
+		rot = (rot + 10) % 360;
+		yaxis = 1.0;
+		glutPostRedisplay();
+		break;
+	case 'w':
+		rot = (rot + 10) % 360;
+		xaxis = 1.0;
+		glutPostRedisplay();
+		break;
+	default:
+		break;
+	}
+}
+
+void mouse(int button, int state, int x, int y) {
+	if (state == GLUT_DOWN) {
+		mouseDown = 1;
+		mouseY = x - 250;
+		mouseX = y - 250;
+		cout << mouseY << " " << mouseX << "\n";
+	}
+	else {
+		mouseDown = 0;
+	}
+}
+void reshape(int w, int h) {
+	glViewport(0, 0, (GLsizei) w, (GLsizei) h);
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+		glLoadIdentity();
+		glOrtho(-2.0, 2.0, -2.0, 2.0, -3.0, 3.0);
+	glPopMatrix();
+}
